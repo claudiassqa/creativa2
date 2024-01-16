@@ -1,0 +1,22 @@
+FROM python:3.7.7-slim
+
+EXPOSE 9080
+
+ENV GRUPO_NUMERO=23
+
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y git
+RUN apt-get install -y python3-pip
+
+RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git
+
+WORKDIR practica_creativa2/bookinfo/src/productpage
+
+RUN pip3 install -r requirements.txt
+
+WORKDIR /practica_creativa2/bookinfo/src/productpage/templates/
+
+RUN sed -i "s/Simple\sBookstore\sApp/${GRUPO_NUMERO}/g" productpage.html
+
+CMD python3 /practica_creativa2/bookinfo/src/productpage/productpage_monolith.py 9080
