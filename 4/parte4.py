@@ -6,10 +6,10 @@ version = input("Introduce la versión de reviews deseada (v1, v2 o v3): \n")
 
 if version == "v1" or version == "v2" or version == "v3":
     #Construimos los servicios de kubernetes
-    subprocess.run(["kubectl", "apply", "-f", "productPage/productpage.yaml"])
+    subprocess.run(["kubectl", "apply", "-f", "productpage/productpage.yaml"])
     subprocess.run(["kubectl", "apply", "-f", "details/details.yaml"])
     subprocess.run(["kubectl", "apply", "-f", "ratings/ratings.yaml"])
-    subprocess.run(["kubectl", "apply", "-f", "reviews/reviews-svc.yaml"])
+    subprocess.run(["kubectl", "apply", "-f", "reviews/reviews.yaml"])
     if version == "v1":
       subprocess.run(["kubectl", "apply", "-f", "reviews/reviews-v1-deployment.yaml"])
     if version == "v2":
