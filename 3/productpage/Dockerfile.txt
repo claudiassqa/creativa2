@@ -1,0 +1,17 @@
+FROM python:3.7.7-slim
+
+COPY ./practica_creativa2/bookinfo/src/productpage ./productpage
+    
+ENV GRUPO_NUMERO=23
+
+WORKDIR /productpage
+
+RUN pip3 install -r requirements.txt
+
+WORKDIR /productpage/templates/
+
+RUN sed -i "s/Simple\sBookstore\sApp/${GRUPO_NUMERO}/g" productpage.html
+
+WORKDIR /productpage
+
+CMD python3 ./productpage.py 9080
