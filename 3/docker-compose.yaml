@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  product-page:
+    image: "g23/product-page"
+    container_name: g23-product-page
+    ports:
+      - "9080:9080"
+
+  details:
+    image: "g23/details"
+    container_name: g23-details
+
+  reviews:
+    image: "g23/reviews-v1"
+    container_name: g23-reviews
+
+  ratings:
+    image: "g23/ratings"
+    container_name: g23-ratings
