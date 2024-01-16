@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: details
-        image: sandracascantem/35:details
+        image: 23/details
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
